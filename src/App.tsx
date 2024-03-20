@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './components/Navbar/Navbar';
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import Overview from './pages/Overview';
+import MyBids from './pages/MyBids';
+import ProductList from './pages/ProductList';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+          <Route path='/overview' element={<Overview />}></Route>
+          <Route path='/products' element={<ProductList />}></Route>
+          <Route path='/bids' element={<MyBids />}></Route>
+
+      </Routes>
+    </>
   );
 }
 
